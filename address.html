@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<title>address</title>
+<style>
+@page {
+  /* はがきの公式なサイズ */
+  size:100mm 148mm;
+  margin:0;
+  padding:0;
+  line-height: 175%;
+}
+* {
+  margin:0;
+  padding:0;
+}
+body {
+  font-family:"UDデジタル教科書体 ProN", "BIZ UDPMincho", serif;
+  font-size:12pt;
+}
+.page {
+  width:100mm;
+  height:148mm;
+  position:relative;
+  page-break-after:always;
+}
+@media screen {
+  .page {
+    /* ブラウザでみている間は背景にはがきの画像を出してイメージしやすくする */
+    margin:0 auto;
+    background-repeat: no-repeat;
+    background-image:url(https://nenga.yu-bin.jp/products/images/plain_img_01.jpg);
+    background-size: 100mm 148mm;
+    background-color: #EEE;
+    border: solid gray 1px;
+  }
+  body { background-color: #CCC; }
+}
+.to_postalcode3, .to_postalcode4 {
+  font-family: Courier, serif;
+  position:absolute;
+  font-size:14pt;
+  letter-spacing:4.1mm;
+}
+/* Adjustment: ずれたら適宜変更 */
+.to_postalcode3 { letter-spacing:4.1mm; top:12.8mm; left:45.0mm; }
+/* Adjustment: ずれたら適宜変更 */
+.to_postalcode4 { letter-spacing:4.0mm; top:12.8mm; left:66.5mm; }
+.main { /* 宛先、宛名、差出人を含む箱 */
+  position:absolute;
+  top: 30mm;
+  left: 6mm;
+  width: 88mm;
+}
+.inner { /* to_address、to_name、from の箱を均等割付する */
+  display:flex;
+  flex-wrap: wrap;
+  flex-direction : row-reverse;	
+  justify-content: space-between;
+}
+.to_address {
+  font-size:12pt;
+  letter-spacing:0.2mm;
+  text-indent:-1em;
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+}
+.to_name {
+  height:91mm;
+  font-size:20pt;
+  line-height:120%;
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  display:flex;
+  flex-wrap: wrap;
+}
+.to_family_name {
+  min-height:30mm;
+  letter-spacing:0.2em;
+  padding-bottom:0.2em;
+}
+.to_first_name {
+  min-height:30mm;
+  letter-spacing:0.2em;
+  padding-bottom:0.2em;
+}
+.to_name_suffix {
+  min-height:24mm;
+}
+.from {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  margin-top: 35mm;
+}
+.from_address {
+  font-size: 9pt;
+  text-indent:-1em;
+}
+.from_name {
+  text-indent:1em;
+}
+.from_postalcode3, .from_postalcode4 {
+  font-family: Courier, serif;
+  position:absolute;
+  letter-spacing: 1.6mm;
+}
+/* Adjustment: ずれたら適宜変更 */
+.from_postalcode3 { top:124mm; left: 5.3mm; }
+/* Adjustment: ずれたら適宜変更 */
+.from_postalcode4 { top:124mm; left: 18.5mm; }
+</style>
+</head>
+<body>
+
+<section class="page">
+  <div class="to_postalcode3">000</div>
+  <div class="to_postalcode4">0000</div>
+  <div class="main">
+    <div class="inner">
+      <div class="to_address">東京都世田谷区桜新町 二ー二五</div>
+      <div class="to_name">
+        <div class="to_family_name">磯野</div>
+        <div class="to_first_name">波平</div>
+        <div class="to_name_suffix">様</div>
+      </div>
+      <div class="from">
+        <div class="from_address">東京都千代田区永田町 二ー三ー一</div>
+        <div class="from_name">鈴木 次郎</div>
+      </div>
+    </div>
+  </div>
+  <div class="from_postalcode3">000</div>
+  <div class="from_postalcode4">0000</div>
+</section>
+
+<section class="page">
+  <div class="to_postalcode3">000</div>
+  <div class="to_postalcode4">0000</div>
+  <div class="main">
+    <div class="inner">
+      <div class="to_address">東京都練馬区月見台すすきヶ原<br>三ー一〇ー五</div>
+      <div class="to_name">
+        <div class="to_family_name">骨皮</div>
+        <div class="to_first_name">スネ夫<br>スネツグ</div>
+        <div class="to_name_suffix">様<br>様</div>
+      </div>
+      <div class="from">
+        <div class="from_address">東京都千代田区永田町 二ー三ー一</div>
+        <div class="from_name">鈴木 次郎</div>
+      </div>
+    </div>
+  </div>
+  <div class="from_postalcode3">000</div>
+  <div class="from_postalcode4">0000</div>
+</section>
+
+</body>

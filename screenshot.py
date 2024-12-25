@@ -36,8 +36,8 @@ def save_screenshot(driver, filename, clip=clipConfig(), is_full_size=False):
 
 # コマンドラインオプション
 parser = ArgumentParser()
-parser.add_argument('--width', type=int, default=380)
-parser.add_argument('--height', type=int, default=561)
+parser.add_argument('--width', type=int, default=380)   # 378px + 2px (border)
+parser.add_argument('--height', type=int, default=561)  # 559px + 2px (border)
 parser.add_argument('--x', type=int, default=0)
 parser.add_argument('--y', type=int, default=0)
 parser.add_argument('-o', '--output', type=str, default='screenshot.png')
@@ -47,6 +47,7 @@ args = parser.parse_args()
 # driver 向けオプション
 options = Options()
 options.add_argument('--headless')
+#options.add_argument('--window-size=380,561')
 # driver生成
 with webdriver.Chrome(options=options) as driver:
     # URLを表示 (MacOS or Linuxの想定)

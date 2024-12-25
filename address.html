@@ -3,20 +3,22 @@
 <head>
 <title>address</title>
 <style>
+/* スクロールバーを隠す・スクリーンショットを取るときのトリック */
+body::-webkit-scrollbar { display: none; }
 @page {
   /* はがきの公式なサイズ */
   size:100mm 148mm;
   margin:0;
   padding:0;
-  line-height: 175%;
 }
 * {
   margin:0;
   padding:0;
 }
 body {
-  font-family:"UDデジタル教科書体 ProN", "BIZ UDPMincho", serif;
+  font-family:"UDデジタル教科書体 ProN","UD デジタル 教科書体 N-R","BIZ UDPMincho",serif;
   font-size:12pt;
+  line-height: 175%;
 }
 .page {
   width:100mm;
@@ -27,25 +29,37 @@ body {
 @media screen {
   .page {
     /* ブラウザでみている間は背景にはがきの画像を出してイメージしやすくする */
+    /*
+    background-image:url(plain_img_01.jpg);
     margin:0 auto;
+    */
+    margin:0;
     background-repeat: no-repeat;
     background-image:url(https://nenga.yu-bin.jp/products/images/plain_img_01.jpg);
     background-size: 100mm 148mm;
-    background-color: #EEE;
+    background-color:rgba(255,255,255,0.5);
+    background-blend-mode:lighten;
     border: solid gray 1px;
   }
   body { background-color: #CCC; }
 }
-.to_postalcode3, .to_postalcode4 {
+.to_postalcode3, .to_postalcode4,
+.from_postalcode3, .from_postalcode4 {
   font-family: Courier, serif;
   position:absolute;
-  font-size:14pt;
-  letter-spacing:4.1mm;
+  line-height: 100%;
 }
+.to_postalcode3, .to_postalcode4 { font-size:14pt; }
 /* Adjustment: ずれたら適宜変更 */
-.to_postalcode3 { letter-spacing:4.1mm; top:12.8mm; left:45.0mm; }
+.to_postalcode3 { letter-spacing:4.1mm; top:13.8mm; left:45.0mm; }
 /* Adjustment: ずれたら適宜変更 */
-.to_postalcode4 { letter-spacing:4.0mm; top:12.8mm; left:66.5mm; }
+.to_postalcode4 { letter-spacing:3.9mm; top:13.8mm; left:66.8mm; }
+/* Adjustment: ずれたら適宜変更 */
+.from_postalcode3, .from_postalcode4 { letter-spacing: 1.5mm; }
+/* Adjustment: ずれたら適宜変更 */
+.from_postalcode3 { top:124mm; left: 5.4mm; }
+/* Adjustment: ずれたら適宜変更 */
+.from_postalcode4 { top:124mm; left: 18.4mm; }
 .main { /* 宛先、宛名、差出人を含む箱 */
   position:absolute;
   top: 30mm;
@@ -99,15 +113,6 @@ body {
 .from_name {
   text-indent:1em;
 }
-.from_postalcode3, .from_postalcode4 {
-  font-family: Courier, serif;
-  position:absolute;
-  letter-spacing: 1.6mm;
-}
-/* Adjustment: ずれたら適宜変更 */
-.from_postalcode3 { top:124mm; left: 5.3mm; }
-/* Adjustment: ずれたら適宜変更 */
-.from_postalcode4 { top:124mm; left: 18.5mm; }
 </style>
 </head>
 <body>

@@ -30,12 +30,11 @@ body {
   .page {
     /* ブラウザでみている間は背景にはがきの画像を出してイメージしやすくする */
     /*
-    background-image:url(plain_img_01.jpg);
-    margin:0 auto;
-    */
-    margin:0;
-    background-repeat: no-repeat;
     background-image:url(https://nenga.yu-bin.jp/products/images/plain_img_01.jpg);
+    */
+    margin:0 auto;
+    background-image:url(nenga_hagaki.png);
+    background-repeat: no-repeat;
     background-size: 100mm 148mm;
     background-color:rgba(255,255,255,0.5);
     background-blend-mode:lighten;
@@ -89,18 +88,14 @@ body {
   flex-wrap: wrap;
 }
 .to_family_name {
-  min-height:30mm;
   letter-spacing:0.2em;
-  padding-bottom:0.2em;
+  padding-bottom:1.0em;
 }
 .to_first_name {
-  min-height:30mm;
   letter-spacing:0.2em;
   padding-bottom:0.2em;
 }
-.to_name_suffix {
-  min-height:24mm;
-}
+.to_name_suffix { /* 特になし */ }
 .from {
   writing-mode: vertical-rl;
   text-orientation: upright;

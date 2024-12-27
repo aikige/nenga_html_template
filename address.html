@@ -3,8 +3,6 @@
 <head>
 <title>address</title>
 <style>
-/* スクロールバーを隠す・スクリーンショットを取るときのトリック */
-body::-webkit-scrollbar { display: none; }
 @page {
   /* はがきの公式なサイズ */
   size:100mm 148mm;
@@ -42,26 +40,31 @@ body {
   }
   body { background-color: #CCC; }
 }
+
 .to_postalcode3, .to_postalcode4,
 .from_postalcode3, .from_postalcode4 {
-  font-family: Courier, serif;
+  font-family:Courier, serif;
   position:absolute;
   line-height: 100%;
 }
 .to_postalcode3, .to_postalcode4 { font-size:14pt; }
-/* Adjustment: ずれたら適宜変更 */
-.to_postalcode3 { letter-spacing:4.1mm; top:13.8mm; left:45.0mm; }
-/* Adjustment: ずれたら適宜変更 */
-.to_postalcode4 { letter-spacing:3.9mm; top:13.8mm; left:66.8mm; }
-/* Adjustment: ずれたら適宜変更 */
-.from_postalcode3, .from_postalcode4 { letter-spacing: 1.5mm; }
-/* Adjustment: ずれたら適宜変更 */
-.from_postalcode3 { top:124mm; left: 5.4mm; }
-/* Adjustment: ずれたら適宜変更 */
-.from_postalcode4 { top:124mm; left: 18.4mm; }
+.from_postalcode3, .from_postalcode4 { font-size: 12pt; }
+/* Adjustment: 郵便番号の座標がズレたら適宜変更してください */
+:root {
+  --to-pc-offset-x: 45.0mm;
+  --to-pc-offset-y: 13.8mm;
+  --from-pc-offset-x: 5.8mm;
+  --from-pc-offset-y: 124mm;
+}
+.to_postalcode3 { letter-spacing:calc(7mm - 0.6em); top:var(--to-pc-offset-y); left:var(--to-pc-offset-x); }
+.to_postalcode4 { letter-spacing:calc(6.8mm - 0.6em); top:var(--to-pc-offset-y); left:calc(var(--to-pc-offset-x) + 21.6mm); }
+.from_postalcode3, .from_postalcode4 { letter-spacing:calc(4.0mm - 0.6em); }  /* 通常共通 */
+.from_postalcode3 { top:var(--from-pc-offset-y); left:var(--from-pc-offset-x); }
+.from_postalcode4 { top:var(--from-pc-offset-y); left:calc(var(--from-pc-offset-x) + 13mm); }
+
 .main { /* 宛先、宛名、差出人を含む箱 */
   position:absolute;
-  top: 30mm;
+  top: 25mm;
   left: 6mm;
   width: 88mm;
 }
@@ -75,17 +78,19 @@ body {
   font-size:12pt;
   letter-spacing:0.2mm;
   text-indent:-1em;
+  margin-top:1em;
   writing-mode:vertical-rl;
   text-orientation:upright;
 }
 .to_name {
-  height:91mm;
+  height:92mm;
   font-size:20pt;
   line-height:120%;
   writing-mode:vertical-rl;
   text-orientation:upright;
   display:flex;
-  flex-wrap: wrap;
+  flex-wrap:wrap;
+  justify-content:center;
 }
 .to_family_name {
   letter-spacing:0.2em;
@@ -93,7 +98,7 @@ body {
 }
 .to_first_name {
   letter-spacing:0.2em;
-  padding-bottom:0.2em;
+  padding-bottom:0.3em;
 }
 .to_name_suffix { /* 特になし */ }
 .from {
@@ -104,9 +109,10 @@ body {
 .from_address {
   font-size: 9pt;
   text-indent:-1em;
+  margin-top:1em;
 }
 .from_name {
-  text-indent:1em;
+  text-indent:2em;
 }
 </style>
 </head>
@@ -124,8 +130,8 @@ body {
         <div class="to_name_suffix">様</div>
       </div>
       <div class="from">
-        <div class="from_address">東京都千代田区永田町 二ー三ー一</div>
-        <div class="from_name">鈴木 次郎</div>
+        <div class="from_address">東京都米花町 二ー二一</div>
+        <div class="from_name">工藤 新一</div>
       </div>
     </div>
   </div>
@@ -145,8 +151,8 @@ body {
         <div class="to_name_suffix">様<br>様</div>
       </div>
       <div class="from">
-        <div class="from_address">東京都千代田区永田町 二ー三ー一</div>
-        <div class="from_name">鈴木 次郎</div>
+        <div class="from_address">東京都米花町 二ー二一</div>
+        <div class="from_name">工藤 新一</div>
       </div>
     </div>
   </div>

@@ -29,4 +29,6 @@ HTML ([`address.html`](address.html)) を編集し、Chrome などを使って P
 
 ## 参考にしたもの
 
-https://qiita.com/tanazaway/items/72bc167871d66522b3c5
+- 基本的な考え方: https://qiita.com/tanazaway/items/72bc167871d66522b3c5
+- 宛先の郵便番号枠の仕様: https://www.post.japanpost.jp/zipcode/zipmanual/p05.html
+- Courierの縦横比(5:3): https://stackoverflow.com/questions/19113725/what-dependency-between-font-size-and-width-of-char-in-monospace-font

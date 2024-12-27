@@ -24,6 +24,10 @@ def save_screenshot(driver, filename, clip=clipViewport()):
     # スクリーンショット設定
     page_viewport = clip.get()
 
+    # スクロールバーを隠す (なくても良さそう)
+    # Ref: https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setScrollbarsHidden
+    #driver.execute_cdp_cmd('Emulation.setScrollbarsHidden', { 'hidden': True })
+
     # Emulation の設定を page_viewport が収まる画面サイズに変更
     # Ref: https://chromedevtools.github.io/devtools-protocol/tot/Emulation/#method-setDeviceMetricsOverride
     device_metrics = {
